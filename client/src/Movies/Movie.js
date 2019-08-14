@@ -7,7 +7,8 @@ const Movie = (props) => {
   const [movie, setMovie] = useState();
  
   useEffect(() => {
-    const id = props.match.params.id;
+    const id = props.match.params.id
+    console.log('id', id)
     // change ^^^ that line and grab the id from the URL
     // You will NEED to add a dependency array to this effect hook
 
@@ -20,7 +21,7 @@ const Movie = (props) => {
           console.error(error);
         });
 
-  },[props.match.params.id]);
+  },[]);
   
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
@@ -29,8 +30,9 @@ const Movie = (props) => {
   // }
 
   if (!movie) {
+    console.log('movie',movie)
     return <div>Loading movie information...</div>;
-  }
+  } 
 
   const { title, director, metascore, stars } = movie;
   return (
